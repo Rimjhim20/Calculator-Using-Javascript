@@ -1,26 +1,27 @@
-//Write your code here
-const add=document.getElementById("add");
-const sub=document.getElementById("sub");
-const mul=document.getElementById("mul");
-const div=document.getElementById("div");
-const anwser=document.getElementById("answer");
-add.addEventListener('click',function (){
-const num1=parseFloat(document.getElementById("num1").value);
-const num2=parseFloat(document.getElementById("num2").value);
-anwser.innerText=num1+num2;
-})
-sub.addEventListener('click',function (){
-    const num1=parseFloat(document.getElementById("num1").value);
-    const num2=parseFloat(document.getElementById("num2").value);
-    anwser.innerText=num1-num2;
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+
     })
-    mul.addEventListener('click',function (){
-        const num1=parseFloat(document.getElementById("num1").value);
-        const num2=parseFloat(document.getElementById("num2").value);
-        anwser.innerText=num1*num2;
-        })
-        div.addEventListener('click',function (){
-            const num1=parseFloat(document.getElementById("num1").value);
-            const num2=parseFloat(document.getElementById("num2").value);
-            anwser.innerText=num1/num2;
-            })
+}
+

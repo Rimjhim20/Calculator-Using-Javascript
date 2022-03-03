@@ -10,7 +10,7 @@ for (item of buttons) {
             screenValue += buttonText;
             screen.value = screenValue;
         }
-        else if (buttonText == 'C') {
+        else if (buttonText == 'Clear') {
             screenValue = "";
             screen.value = screenValue;
         }
